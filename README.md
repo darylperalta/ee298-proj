@@ -16,7 +16,7 @@ Norfolk Terrier
 <p align="center"><img src="img/norwich_terrier1.jpg" width="40%" /><br><br></p>
 Norwich Terrier  
 
-The *class distribution* is shown in the image below.
+The *class distribution* of the dataset is shown in the image below.
 
 <p align="center"><img src="img/breed_dist.png" width="50%" /><br><br></p>
 
@@ -33,7 +33,7 @@ I used transfer learning for this project.
 
 I used an existing architecture used in general classification as base model. I appended fully connected layers that will resize the shape that will be fit for the number of classes. An illustration of the architecture is shown in the figure below.
 
-<p align="center"><img src="img/architecture.png" width="50%" /><br><br></p>
+<p align="center"><img src="img/architecture.png" width="20%" /><br><br></p>
 
 I experimented with different base models. I experimented with xception, inceptionV3 and resnet50.
 
