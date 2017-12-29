@@ -37,9 +37,14 @@ I used an existing architecture used in general classification as base model. I 
 
 I experimented with different base models. I experimented with xception, inceptionV3 and resnet50.
 
-
+Based on my experiments the resnet50 architecture gives me the lowest accuracy.
 
 ## Results
 
+The kaggle challenge uses multiclass loss or categorical cross entropy loss as its scoring metric.
+
+The best result I was able to get is shown in the image below.
+
+<p align="center"><img src="img/score_resnet200e.png" width="20%" /><br><br></p>
 
 # Usage
