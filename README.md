@@ -1,14 +1,25 @@
-## Synopsis
+This repository contains my submission for the project requirement of EE 298F Deep Learning and Computer Vision.
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+## Project Details
 
-## Code Example
+I decided to join the Kaggle Challenge: *Dog Breed Identification*. It requires to identify the breed of the dog in the image.
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+The challenge here is that there are 120 classes of dogs but the provided training data is only 10222 images.
 
-## Motivation
+*Dataset*
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+The dataset is based on the Stanford dataset. It contains 10222 images of size 224 x 224.  
+
+<p align="center"><img src="img/norfolk_terrier1.jpg" width="70%" /><br><br></p>
+>Norfolk Terrier
+
+<p align="center"><img src="img/norwich_terrier1.jpg" width="70%" /><br><br></p>
+>Norwich Terrier  
+
+
+## Code Explanation
+
+
 
 ## Installation
 
