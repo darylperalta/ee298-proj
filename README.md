@@ -72,7 +72,7 @@ The low score can be attributed to the low number of training image per class as
 Two training images of aghan hound.
 ## Usage
 
-Run this script:
+Run this script, run:
 
   mkdir input
   cd input
