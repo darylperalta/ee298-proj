@@ -6,7 +6,7 @@ I decided to join the Kaggle Challenge: *Dog Breed Identification*. The task is 
 
 The challenge here is that there are 120 classes of dogs but the provided training data is only 10222 images.
 
-> [Here's the link](https://www.kaggle.com/c/dog-breed-identification)
+> Here's the [link](https://www.kaggle.com/c/dog-breed-identification) for the kaggle challenge.
 ## Dataset
 
 The dataset is based on the Stanford dataset. It contains 10222 images.  
@@ -24,7 +24,7 @@ The *class distribution* of the dataset is shown in the image below.
 
 ## Data Preprocessing and Augmentation
 
-To compensate the lack of enough training images. I used data augmentation. I implented it using the Keras' ImageDataGenerator.
+To compensate the lack of enough training images. I used data augmentation. I implemented it using the Keras' ImageDataGenerator.
 
 I used the code dataprep.py to create the necessary directory that will be used for the ImageDataGenerator.
 
@@ -38,16 +38,49 @@ I used an existing architecture used in general classification as base model. I 
 
 I experimented with different base models. I experimented with xception, inceptionV3 and resnet50.
 
-Based on my experiments the resnet50 architecture gives me the lowest lost.
+I used dropout layers to avoid overfitting.
+
+The image data generator also serves as the generator for batch processing of data to fit the memory.
+
+
+## Experiments
+
+During my initial tests I split the given data into a 9:1 train to validation ratio to have see if the network is overfitting.
+
+I first tested experimented with different models. Tweaked the hyperparameters. The best scores I was able to get are summarized in the table below. The kaggle challenge uses multiclass loss or categorical cross entropy loss as its scoring metric.
+
+I used 135 epochs and used the best checkpoint based on training loss for prediction.
+
+<p align="center"><img src="img/model_results.png" width="50%" /><br><br></p>
 
 ## Results
 
-The kaggle challenge uses multiclass loss or categorical cross entropy loss as its scoring metric.
+Based on my experiments the resnet50 architecture gives the highest submission score.
 
-The best result I was able to get is shown in the image below.
+I used the resnet50 as the base model for my architecture and continued training the network up to 200 epochs. The best result I was able to get is shown in the image below.
 
 <p align="center"><img src="img/score_resnet200e.png" width="40%" /><br><br></p>
 
-# Usage
+## Usage
 
-Download the dataset from the kaggle challenge. Here's the [link](https://www.kaggle.com/c/dog-breed-identification/data)
+Run this script
+
+mkdir input
+cd input
+
+Then download the dataset from the kaggle challenge in this directory. Here's the [link](https://www.kaggle.com/c/dog-breed-identification/data) for the data. Extract train.zip and test.zip here.
+
+Then execute this
+
+cd ..
+git clone https://github.com/darylperalta/ee298-proj
+
+Download the checkpoint of the model here. add link**
+
+For prediction, go to pred.py and edit checkpointpath to the path of the downloaded checkpoint. You can also change the pred_filename for the output submission filename.
+
+Run pred.py to create predictions for the test data and output a submission file.
+
+Submit the out csv file to the kaggle website to see the result.
+
+To train,
