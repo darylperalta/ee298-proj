@@ -6,7 +6,7 @@ I decided to join the Kaggle Challenge: *Dog Breed Identification*. The task is 
 
 The challenge here is that there are 120 classes of dogs but the provided training data is only 10222 images.
 
-> (Here's the link)[https://www.kaggle.com/c/dog-breed-identification]
+> [Here's the link](https://www.kaggle.com/c/dog-breed-identification)
 ## Dataset
 
 The dataset is based on the Stanford dataset. It contains 10222 images.  
@@ -50,4 +50,4 @@ The best result I was able to get is shown in the image below.
 
 # Usage
 
-Download the dataset from the kaggle challenge. Here's the (link)[https://www.kaggle.com/c/dog-breed-identification/data]
+Download the dataset from the kaggle challenge. Here's the [link](https://www.kaggle.com/c/dog-breed-identification/data)
