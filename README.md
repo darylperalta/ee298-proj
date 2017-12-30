@@ -24,23 +24,21 @@ The *class distribution* of the dataset is shown in the image below.
 
 ## Data Preprocessing and Augmentation
 
-To compensate the lack of enough training images. I used data augmentation. I implemented it using the Keras' ImageDataGenerator.
+To compensate the lack of enough training images, I implemented data augmentation using the Keras' ImageDataGenerator.
 
-I used the code dataprep.py to create the necessary directory that will be used for the ImageDataGenerator.
+The necessary directory that will be used for the ImageDataGenerator was created using *dataprep.py*.
 
 ## Architecture
 
-I used transfer learning for this project.
+Since this is a classification task, I used transfer learning for this project. In transfer learning a known architecture that does well in a certain dataset is fine tuned to do classification task in another dataset.
 
-I used an existing architecture used in general classification as base model. I appended fully connected layers that will resize the shape that will be fit for the number of classes. An illustration of the architecture is shown in the figure below.
+I experimented with three different base models namely xception, inceptionV3 and resnet50. Fully connected layers were appended to the base model to resize the shape that will be fit for the number of classes. An illustration of the architecture is shown in the figure below.
 
 <p align="center"><img src="img/architecture.png" width="20%" /><br><br></p>
 
-I experimented with different base models. I experimented with xception, inceptionV3 and resnet50.
+Because of the low number of training image, the architecture was very prone to overfitting. To avoid this dropout layers were added.
 
-I used dropout layers to avoid overfitting.
-
-The image data generator also serves as the generator for batch processing of data to fit the memory.
+The image data generator also serves as the generator for batch processing of training data to fit in the limited gpu memory.
 
 
 ## Experiments
@@ -49,7 +47,7 @@ During my initial tests I split the given data into a 9:1 train to validation ra
 
 I first tested experimented with different models. Tweaked the hyperparameters. The best scores I was able to get are summarized in the table below. The kaggle challenge uses multiclass loss or categorical cross entropy loss as its scoring metric.
 
-I used 135 epochs and used the best checkpoint based on training loss for prediction.
+The architecture were trained for 135 epochs. The best model based on the training loss was used for prediction.
 
 <p align="center"><img src="img/model_results.png" width="50%" /><br><br></p>
 
@@ -63,7 +61,7 @@ I used the resnet50 as the base model for my architecture and continued training
 
 The loss is 1.67119 which is around 55% accuracy based on my training data.
 
-The low score can be attributed to the low number of training image per class as seen in the class distribution plot. Even with data augmentation the network is having a hard time learning to classify between breeds. Include also the fact that some breeds are very much alike as seen in the sample image above. Also the background of the training images are different from each other like the images below of the same breed.
+The low score can be attributed to the low number of training image per class as seen in the class distribution plot. Even with data augmentation the network is having a hard time learning to classify between breeds. Another factor is that some breeds are very much similar in appearance as seen in the sample image above. Also the background of the training images are different from each other like the images below of the same breed.
 
 <p align="center"><img src="img/afghan_hound2.jpg" width="50%" /><br><br></p>
 
