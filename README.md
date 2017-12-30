@@ -55,7 +55,7 @@ The architecture were trained for 135 epochs. The best model based on the traini
 
 Based on my experiments the resnet50 architecture gives the highest submission score.
 
-I used the resnet50 as the base model for my architecture and continued training the network up to 200 epochs. I also removed the validation and used the entire dataset for training. The best result I was able to get is shown in the image below.
+I used the resnet50 as the base model for my architecture and continued training the network up to 200 epochs. I also removed the validation and used the entire dataset for training. The best result I was able to get is shown in the image below. The submission file is included in this repo as resnet50_complete_data_198e.csv
 
 <p align="center"><img src="img/score_resnet200e.png" width="70%" /><br><br></p>
 
