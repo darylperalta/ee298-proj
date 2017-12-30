@@ -23,8 +23,8 @@ x_test = []
 ##checkpointpath="/media/airscan/Data/AIRSCAN/EE298F/dogbreed/inception_weights/inception_weights_lr-131.hdf5"
 #checkpointpath="/media/airscan/Data/AIRSCAN/EE298F/dogbreed/inception_comp_weights/inception_weights_comp-88.hdf5"
 #checkpointpath="/media/airscan/Data/AIRSCAN/EE298F/dogbreed/resnet_comp_weights/resnet50_weights_comp-88.hdf5"
-#checkpointpath="/media/airscan/Data/AIRSCAN/EE298F/dogbreed/resnet_comp_weights/resnet50_weights_comp-198.hdf5"
-checkpointpath="/media/airscan/Data/AIRSCAN/EE298F/dogbreed/resnet_comp_weights/resnet50_weights_comp-292.hdf5"
+checkpointpath="/media/airscan/Data/AIRSCAN/EE298F/dogbreed/resnet_comp_weights/resnet50_weights_comp-198.hdf5"
+
 
 pred_filename = "resnet50_complete_data_300e.csv"
 
