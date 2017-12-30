@@ -59,8 +59,17 @@ Based on my experiments the resnet50 architecture gives the highest submission s
 
 I used the resnet50 as the base model for my architecture and continued training the network up to 200 epochs. The best result I was able to get is shown in the image below.
 
-<p align="center"><img src="img/score_resnet200e.png" width="40%" /><br><br></p>
+<p align="center"><img src="img/score_resnet200e.png" width="70%" /><br><br></p>
 
+The loss is 1.67119 which is around 55% accuracy based on my training data.
+
+The low score can be attributed to the low number of training image per class as seen in the class distribution plot. Even with data augmentation the network is having a hard time learning to classify between breeds. Include also the fact that some breeds are very much alike as seen in the sample image above. Also the background of the training images are different from each other like the images below of the same breed.
+
+<p align="center"><img src="img/afghan_hound2.png" width="50%" /><br><br></p>
+
+<p align="center"><img src="img/afghan_hound.png" width="50%" /><br><br></p>
+
+Two training images of aghan hound.
 ## Usage
 
 Run this script
@@ -70,17 +79,24 @@ cd input
 
 Then download the dataset from the kaggle challenge in this directory. Here's the [link](https://www.kaggle.com/c/dog-breed-identification/data) for the data. Extract train.zip and test.zip here.
 
-Then execute this
+Then execute this to clone the repo and format the data for the data generator.
 
 cd ..
 git clone https://github.com/darylperalta/ee298-proj
+cd ee298-proj
+python dataprep.py
+
+
 
 Download the checkpoint of the model here. add link**
 
 For prediction, go to pred.py and edit checkpointpath to the path of the downloaded checkpoint. You can also change the pred_filename for the output submission filename.
 
-Run pred.py to create predictions for the test data and output a submission file.
+Run **pred.py** to create predictions for the test data and output a submission file.
 
-Submit the out csv file to the kaggle website to see the result.
+Submit the output csv file to the kaggle website to see the result.
 
-To train,
+The code used for train are:
+>resnet50_train.py for the architecture with resnet as its base model
+>xception_train.py for the architecture with xception as its base model
+>inceptionV3_train.py for the architecture with inceptionV3 as its base model
