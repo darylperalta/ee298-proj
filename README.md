@@ -6,6 +6,7 @@ I decided to join the Kaggle Challenge: *Dog Breed Identification*. The task is 
 
 The challenge here is that there are 120 classes of dogs but the provided training data is only 10222 images.
 
+> (Here's the link)[https://www.kaggle.com/c/dog-breed-identification]
 ## Dataset
 
 The dataset is based on the Stanford dataset. It contains 10222 images.  
@@ -37,7 +38,7 @@ I used an existing architecture used in general classification as base model. I 
 
 I experimented with different base models. I experimented with xception, inceptionV3 and resnet50.
 
-Based on my experiments the resnet50 architecture gives me the lowest accuracy.
+Based on my experiments the resnet50 architecture gives me the lowest lost.
 
 ## Results
 
@@ -45,6 +46,8 @@ The kaggle challenge uses multiclass loss or categorical cross entropy loss as i
 
 The best result I was able to get is shown in the image below.
 
-<p align="center"><img src="img/score_resnet200e.png" width="20%" /><br><br></p>
+<p align="center"><img src="img/score_resnet200e.png" width="40%" /><br><br></p>
 
 # Usage
+
+Download the dataset from the kaggle challenge. Here's the (link)[https://www.kaggle.com/c/dog-breed-identification/data]
