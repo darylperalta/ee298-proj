@@ -20,7 +20,7 @@ from random import randint
 im_size =224
 num_samples = 10222
 num_class = 120
-epochs = 90
+epochs = 135
 batch_size = 32
 
 train_dir = '../data_gen_compl/train'

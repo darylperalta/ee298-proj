@@ -1,7 +1,7 @@
 import numpy as np
 
-original_train_dir = '../input/train'
-original_test_dir = '../input/test'
+original_train_dir = '../train'
+original_test_dir = '../test'
 train_labels = np.loadtxt('../input/labels.csv', delimiter=',', dtype=str, skiprows=1)
 clazzes, counts = np.unique(train_labels[:, 1], return_counts=True)
 

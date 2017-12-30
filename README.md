@@ -9,36 +9,38 @@ The challenge here is that there are 120 classes of dogs but the provided traini
 > Here's the [link](https://www.kaggle.com/c/dog-breed-identification) for the kaggle challenge.
 
 ## Usage
+Download the dataset here: https://drive.google.com/open?id=139Vyav-E0so1UoAi5ERNUNs8H-_ZVwEP
 
-Run this script:
-```
-mkdir input
-cd input
-```
-Then download the dataset from the kaggle challenge in this directory. Here's the [link](https://www.kaggle.com/c/dog-breed-identification/data) for the data. Extract train.zip and test.zip here.
+Extract train.zip and test.zip.
 
-Then execute this to clone the repo and format the data for the data generator:
+Then execute this:
 ```
-cd ..
 git clone https://github.com/darylperalta/ee298-proj
 cd ee298-proj
+```
+
+Update the *original_train_dir* and *original_test_dir* variables in dataprep.py to the path of the extracted train and test directory.
+
+Run:
+```
 python dataprep.py
 ```
 
+This will make new directory containing the training and validation data. (By default the code won't create vaildation data)
 
-Download the checkpoint of the model [here](https://drive.google.com/open?id=1mnFhXLOiYGoRgwh6TAeEeTtS3zWMKUCC).
+To train, update the *checkpointpath* variable in resnet50_train.py to the directory where you want to save the checkpoint.
 
-For prediction, go to pred.py and edit checkpointpath to the path of the downloaded checkpoint. You can also change the pred_filename for the output submission filename.
-Also, change testDir_path to the path where the test images are.
+After this, run:
 
-Run **pred.py** to create predictions for the test data and output a submission file.
+```
+python resnet50_train.py
+```
 
-Submit the output csv file to the kaggle website to see the result.
+For prediction, download the checkpoint of the model [here](https://drive.google.com/open?id=1mnFhXLOiYGoRgwh6TAeEeTtS3zWMKUCC).
 
-The code used for train are:
-  >resnet50_train.py for the architecture with resnet as its base model
-  >xception_train.py for the architecture with xception as its base model
-  >inceptionV3_train.py for the architecture with inceptionV3 as its base model
+To run the *pred.py* please change the checkpointpath to the path of the downloaded model checkpoint. https://drive.google.com/file/d/1mnFhXLOiYGoRgwh6TAeEeTtS3zWMKUCC/view. Also, please change the *testDir_path* to the path of the extracted test.zip folder contating the test images.
+
+The code *pred.py* shall output a formatted file containing the predictions that can be submitted to the competition and will be scored.
 
 ## Dataset
 
