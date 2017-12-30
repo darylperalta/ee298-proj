@@ -24,7 +24,7 @@ x_test = []
 #checkpointpath="/media/airscan/Data/AIRSCAN/EE298F/dogbreed/inception_comp_weights/inception_weights_comp-88.hdf5"
 #checkpointpath="/media/airscan/Data/AIRSCAN/EE298F/dogbreed/resnet_comp_weights/resnet50_weights_comp-88.hdf5"
 checkpointpath="/media/airscan/Data/AIRSCAN/EE298F/dogbreed/resnet_comp_weights/resnet50_weights_comp-198.hdf5"
-testDir_path = "../input/test/"
+testDir_path = "/media/airscan/Data/AIRSCAN/EE298F/dogbreed/input/test"
 
 
 pred_filename = "out.csv"
@@ -45,7 +45,7 @@ del targets_series
 del df_train
 
 for f in tqdm(df_test['id'].values):
-    img = cv2.imread(testDir_path+'{}.jpg'.format(f))
+    img = cv2.imread(testDir_path+'/{}.jpg'.format(f))
     x_test.append(cv2.resize(img, (im_size, im_size)))
 
 x_test  = np.array(x_test, np.float32) / 255.
