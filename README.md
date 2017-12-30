@@ -73,22 +73,22 @@ Two training images of aghan hound.
 ## Usage
 
 Run this script, run:
-
-  mkdir input
-  cd input
-
+'''
+mkdir input
+cd input
+'''
 Then download the dataset from the kaggle challenge in this directory. Here's the [link](https://www.kaggle.com/c/dog-breed-identification/data) for the data. Extract train.zip and test.zip here.
 
 Then execute this to clone the repo and format the data for the data generator:
+'''
+cd ..
+git clone https://github.com/darylperalta/ee298-proj
+cd ee298-proj
+python dataprep.py
+'''
 
-  cd ..
-  git clone https://github.com/darylperalta/ee298-proj
-  cd ee298-proj
-  python dataprep.py
 
-
-
-Download the checkpoint of the model here. add link**
+Download the checkpoint of the model [here](https://drive.google.com/open?id=1mnFhXLOiYGoRgwh6TAeEeTtS3zWMKUCC).
 
 For prediction, go to pred.py and edit checkpointpath to the path of the downloaded checkpoint. You can also change the pred_filename for the output submission filename.
 

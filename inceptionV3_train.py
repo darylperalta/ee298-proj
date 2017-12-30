@@ -1,13 +1,6 @@
-#fixing data generator because of OOM error
-#using the 9:1 train-split
-#added ReduceLROnPlateau
-#try using Adam
-#will be using complete dataset
-
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import keras
-#from keras.applications.mobilenet import MobileNet
 from keras.applications.inception_v3 import InceptionV3
 from keras.models import Model
 from keras.layers import Dense, Dropout, Flatten
@@ -67,7 +60,7 @@ total_val_image_count = train_generator.samples
 base_model = InceptionV3(#weights='imagenet',
     weights = 'imagenet', include_top=False, input_shape=(im_size, im_size, 3))
 
-# Add a new top layer
+# Append layers
 x = base_model.output
 x = Flatten()(x)
 x = Dropout(0.5)(x)
@@ -75,10 +68,10 @@ x = Dense(1024)(x)
 x = Dropout(0.5)(x)
 predictions = Dense(num_class, activation='softmax')(x)
 
-# This is the model we will train
+# whole model
 model = Model(inputs=base_model.input, outputs=predictions)
 
-# First: train only the top layers (which were randomly initialized)
+# Freeze the base model layers except the last 5 layers.
 frz=len(base_model.layers)-5
 for layer in base_model.layers[:frz]:
     layer.trainable = False
@@ -87,7 +80,6 @@ model.compile(loss='categorical_crossentropy',
               optimizer=RMSprop(lr=0.0001),
               metrics=['accuracy'])
 
-#callbacks_list = [keras.callbacks.EarlyStopping(monitor='val_acc', patience=3, verbose=1)]
 model.summary()
 
 checkpoint = ModelCheckpoint(checkpointpath, verbose=1)

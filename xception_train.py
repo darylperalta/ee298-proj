@@ -1,13 +1,7 @@
-#fixing data generator because of OOM error
-#using the 9:1 train-split
-#added ReduceLROnPlateau
-#try using Adam
-
-
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import keras
-#from keras.applications.mobilenet import MobileNet
+
 from keras.applications.xception import Xception
 from keras.models import Model
 from keras.layers import Dense, Dropout, Flatten
@@ -26,8 +20,6 @@ from random import randint
 im_size =224
 num_samples = 10222
 num_class = 120
-#steps_per_epoch = num_samples//batch_size
-#print(steps_per_epoch)
 epochs = 90
 batch_size = 32
 
@@ -36,7 +28,6 @@ validation_dir = '../data_gen_9/validation'
 
 checkpointpath="/media/airscan/Data/AIRSCAN/EE298F/dogbreed/xception_rlr_weights/xception_samplewise_center-weights-{epoch:02d}.hdf5"
 
-#tried samplewise_center -> result not good
 train_datagen = ImageDataGenerator(
     rescale=1./255,
     samplewise_center=True,
@@ -68,7 +59,7 @@ total_val_image_count = train_generator.samples
 base_model = Xception(#weights='imagenet',
     weights = 'imagenet', include_top=False, input_shape=(im_size, im_size, 3))
 
-# Add a new top layer
+# Append layers
 x = base_model.output
 x = Flatten()(x)
 x = Dropout(0.5)(x)
@@ -76,10 +67,10 @@ x = Dense(1024)(x)
 x = Dropout(0.5)(x)
 predictions = Dense(num_class, activation='softmax')(x)
 
-# This is the model we will train
+# whole model
 model = Model(inputs=base_model.input, outputs=predictions)
 
-# First: train only the top layers (which were randomly initialized)
+# Freeze the base model layers except the last 5 layers.
 frz=len(base_model.layers)-5
 for layer in base_model.layers[:frz]:
     layer.trainable = False
@@ -88,7 +79,6 @@ model.compile(loss='categorical_crossentropy',
               optimizer=RMSprop(lr=0.00005),
               metrics=['accuracy'])
 
-#callbacks_list = [keras.callbacks.EarlyStopping(monitor='val_acc', patience=3, verbose=1)]
 model.summary()
 
 checkpoint = ModelCheckpoint(checkpointpath, verbose=1)
