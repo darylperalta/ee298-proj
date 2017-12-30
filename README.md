@@ -72,19 +72,19 @@ The low score can be attributed to the low number of training image per class as
 Two training images of aghan hound.
 ## Usage
 
-Run this script
+Run this script:
 
-mkdir input
-cd input
+  mkdir input
+  cd input
 
 Then download the dataset from the kaggle challenge in this directory. Here's the [link](https://www.kaggle.com/c/dog-breed-identification/data) for the data. Extract train.zip and test.zip here.
 
-Then execute this to clone the repo and format the data for the data generator.
+Then execute this to clone the repo and format the data for the data generator:
 
-cd ..
-git clone https://github.com/darylperalta/ee298-proj
-cd ee298-proj
-python dataprep.py
+  cd ..
+  git clone https://github.com/darylperalta/ee298-proj
+  cd ee298-proj
+  python dataprep.py
 
 
 
@@ -97,6 +97,6 @@ Run **pred.py** to create predictions for the test data and output a submission 
 Submit the output csv file to the kaggle website to see the result.
 
 The code used for train are:
->resnet50_train.py for the architecture with resnet as its base model
->xception_train.py for the architecture with xception as its base model
->inceptionV3_train.py for the architecture with inceptionV3 as its base model
+  >resnet50_train.py for the architecture with resnet as its base model
+  >xception_train.py for the architecture with xception as its base model
+  >inceptionV3_train.py for the architecture with inceptionV3 as its base model
