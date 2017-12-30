@@ -7,9 +7,42 @@ I decided to join the Kaggle Challenge: *Dog Breed Identification*. The task is 
 The challenge here is that there are 120 classes of dogs but the provided training data is only 10222 images.
 
 > Here's the [link](https://www.kaggle.com/c/dog-breed-identification) for the kaggle challenge.
+
+## Usage
+
+Run this script:
+```
+mkdir input
+cd input
+```
+Then download the dataset from the kaggle challenge in this directory. Here's the [link](https://www.kaggle.com/c/dog-breed-identification/data) for the data. Extract train.zip and test.zip here.
+
+Then execute this to clone the repo and format the data for the data generator:
+```
+cd ..
+git clone https://github.com/darylperalta/ee298-proj
+cd ee298-proj
+python dataprep.py
+```
+
+
+Download the checkpoint of the model [here](https://drive.google.com/open?id=1mnFhXLOiYGoRgwh6TAeEeTtS3zWMKUCC).
+
+For prediction, go to pred.py and edit checkpointpath to the path of the downloaded checkpoint. You can also change the pred_filename for the output submission filename.
+Also, change testDir_path to the path where the test images are.
+
+Run **pred.py** to create predictions for the test data and output a submission file.
+
+Submit the output csv file to the kaggle website to see the result.
+
+The code used for train are:
+  >resnet50_train.py for the architecture with resnet as its base model
+  >xception_train.py for the architecture with xception as its base model
+  >inceptionV3_train.py for the architecture with inceptionV3 as its base model
+
 ## Dataset
 
-The dataset is based on the Stanford dataset. It contains 10222 images.  
+The dataset is based on the Stanford Dog dataset. It contains 10222 images.  
 
 <p align="center"><img src="img/norfolk_terrier1.jpg" width="40%" /><br><br></p>
 Norfolk Terrier
@@ -68,33 +101,3 @@ The low score can be attributed to the low number of training image per class as
 <p align="center"><img src="img/afghan_hound.jpg" width="50%" /><br><br></p>
 
 Two training images of aghan hound.
-## Usage
-
-Run this script:
-```
-mkdir input
-cd input
-```
-Then download the dataset from the kaggle challenge in this directory. Here's the [link](https://www.kaggle.com/c/dog-breed-identification/data) for the data. Extract train.zip and test.zip here.
-
-Then execute this to clone the repo and format the data for the data generator:
-```
-cd ..
-git clone https://github.com/darylperalta/ee298-proj
-cd ee298-proj
-python dataprep.py
-```
-
-
-Download the checkpoint of the model [here](https://drive.google.com/open?id=1mnFhXLOiYGoRgwh6TAeEeTtS3zWMKUCC).
-
-For prediction, go to pred.py and edit checkpointpath to the path of the downloaded checkpoint. You can also change the pred_filename for the output submission filename.
-
-Run **pred.py** to create predictions for the test data and output a submission file.
-
-Submit the output csv file to the kaggle website to see the result.
-
-The code used for train are:
-  >resnet50_train.py for the architecture with resnet as its base model
-  >xception_train.py for the architecture with xception as its base model
-  >inceptionV3_train.py for the architecture with inceptionV3 as its base model
