@@ -65,9 +65,9 @@ The loss is 1.67119 which is around 55% accuracy based on my training data.
 
 The low score can be attributed to the low number of training image per class as seen in the class distribution plot. Even with data augmentation the network is having a hard time learning to classify between breeds. Include also the fact that some breeds are very much alike as seen in the sample image above. Also the background of the training images are different from each other like the images below of the same breed.
 
-<p align="center"><img src="img/afghan_hound2.png" width="50%" /><br><br></p>
+<p align="center"><img src="img/afghan_hound2.jpg" width="50%" /><br><br></p>
 
-<p align="center"><img src="img/afghan_hound.png" width="50%" /><br><br></p>
+<p align="center"><img src="img/afghan_hound.jpg" width="50%" /><br><br></p>
 
 Two training images of aghan hound.
 ## Usage
